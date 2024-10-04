@@ -103,17 +103,17 @@ const TextBubble = (props: textBubbleProps) => {
 const Apps = () => {
     let [loadStatus, setLoadStatus] = useState('.load-in');
     let [stateTextBubbleList, setTextBubbleList] : any = useState([])
-    
     const defaultText = 'So I created this thread to see if anyone wants to work on creating an N Wheeled class vehicle with me, as opposed to a bunch of people banging their heads against the wall seperately'
 
     useEffect(() => {
         setTextBubbleList([<TextBubble text={defaultText}/>, <TextBubble text={defaultText}/>]);
-    }, []) 
+    }, []); 
 
     const addTextBubble = (): void => {
         setTextBubbleList([
-            <TextBubble text=''/>,
-            ...stateTextBubbleList]);
+            ...stateTextBubbleList,
+            <TextBubble text={defaultText}/>
+        ]);
     }
 
     return (
