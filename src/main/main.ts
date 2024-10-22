@@ -18,7 +18,6 @@ function createWindow() {
 
     mainWindow.setIcon(`${__dirname}/dist/assets/icon.png`);
 
-
     mainWindow.loadURL(
         isDev
         ? "http://localhost:3000"
