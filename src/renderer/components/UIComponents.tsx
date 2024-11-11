@@ -76,7 +76,7 @@ export const NavMenu = () => {
 
 export const FileExplorer = () => {
     return (
-        <div className='input-group1'>
+        <div className='file-explorer'>
             <div className='button-group'>
                 <button><FileTextIcon /></button>
                 <button><PlusIcon /></button>
