@@ -9,15 +9,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 let common_config = {
     node: {
         __dirname: true,
-    },    
-    mode: process.env.ENV || 'development',
-    /* 
-    entry: path.join(__dirname, 'src/index.tsx'),
-    output: {
-        path: path.join(__dirname, 'dist'),
-        filename: 'bundle.js'
     },
-    */
+    mode: process.env.ENV || 'development',
     resolve: {
         extensions: [".ts", ".tsx", '.js', '.jsx', '.css', '.scss'],
     },
@@ -30,67 +23,59 @@ let common_config = {
                     loader: 'babel-loader'
                 }
             },
-            { 
-                test: /\.css$/, 
+            {
+                test: /\.css$/,
                 exclude: /node_modules/,
-                use: [ 'style-loader', 'css-loader' ]
+                use: ['style-loader', 'css-loader']
             },
-            { 
+            {
                 test: /\.(s(a|c)ss)$/,
-                use: [MiniCssExtractPlugin.loader,'css-loader', 'sass-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
             },
             {
                 test: /\.(ts|tsx)?$/,
                 exclude: /node_modules/,
-                use: [ 'babel-loader', 'ts-loader'],
+                use: ['babel-loader', 'ts-loader'],
             },
         ]
     },
-
-    /*
-    devServer: {
-        hot: true,  // hot reloading
-        port: 3000,  // port on which server will run
-        open: true // open browser automatically on start
-    }
-    */
 }
 
 let obj = [
     Object.assign({}, common_config, {
-      node: {
-        __dirname: true,
-      }, 
-      target: 'electron-main',
-      entry: {
-        renderrer: './src/main/main.ts',
-      },
-      output: {
-        filename: '[name]-bundle.js',
-        path: path.resolve(__dirname, 'src/main/dist'),
-      },
+        node: {
+            __dirname: true,
+        },
+        target: 'electron-main',
+        entry: {
+            renderrer: './src/main/main.ts',
+        },
+        output: {
+            filename: '[name]-bundle.js',
+            path: path.resolve(__dirname, 'src/main/dist'),
+        },
     }),
     Object.assign({}, common_config, {
-      node: {
-        __dirname: true,
-      }, 
-      target: 'electron-renderer',
-      entry: {
-        ui: './src/renderer/index.tsx',
-      },
-      output: {
-        filename: '[name]-bundle.js',
-        path: path.resolve(__dirname, 'src/renderer/dist'),
-      },
-      devServer: {
-        hot: true,  // hot reloading
-        port: 3000,  // port on which server will run
-        open: true // open browser automatically on start
-      },
-      plugins: [
-        new HtmlWebpackPlugin({ template: './public/index.html'}),
-        new MiniCssExtractPlugin(),
-      ],
+        node: {
+            __dirname: true,
+        },
+        target: 'electron-renderer',
+        entry: {
+            ui: './src/renderer/index.tsx',
+        },
+        output: {
+            filename: '[name]-bundle.js',
+            path: path.resolve(__dirname, 'src/renderer/dist'),
+        },
+        devServer: {
+            hot: true,  // hot reloading
+            port: 3000,  // port on which server will run
+            open: true // open browser automatically on start
+        },
+        plugins: [
+            new HtmlWebpackPlugin({ template: './public/index.html' }),
+            new MiniCssExtractPlugin(),
+        ],
     })
-  ]
-  export default obj
+]
+export default obj

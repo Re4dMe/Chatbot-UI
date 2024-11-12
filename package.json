@@ -7,10 +7,6 @@
     "scripts": {
         "start": "webpack serve --mode development",
         "build": "webpack --mode production",
-        "electron-build": "npm run build && npm electron-build",
-        "release": "npm react-build && electron-builder --publish=always",
-        "electron-plain-start": "electron .",
-        "webpack-plain": "webpack --config webpack.config.mjs",
         "electron-start": "concurrently \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\""
     },
     "keywords": [],
