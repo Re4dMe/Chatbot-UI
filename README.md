@@ -1,3 +1,5 @@
+https://github.com/user-attachments/assets/f7b270fc-fc64-465a-b0da-a6e1bb242d15
+
 # Desktop Application UI for LLM Chatbots
 
 An Electron desktop application for LLM Chatbots.
