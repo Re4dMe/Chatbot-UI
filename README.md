@@ -8,7 +8,12 @@ https://github.com/user-attachments/assets/f7b270fc-fc64-465a-b0da-a6e1bb242d15
 
 ## Usage
 
-Start App
+#### Install
+```
+npm install
+```
+
+#### Start App
 ```
 npm run electron-start
 ```
